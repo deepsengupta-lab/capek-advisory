@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capek Solutions | Data & Risk Advisory</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            accent: {
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            navy: {
+              800: '#0f172a',
+              900: '#0b0f19',
+              950: '#05070c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body { 
+      background-color: #05070c; 
+      color: #f8fafc; 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      overflow-x: hidden;
+    }
+
+    .glass-card { 
+      background: rgba(15, 23, 42, 0.65); 
+      backdrop-filter: blur(16px); 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+    }
+
+    .glass-card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card-hover:hover { 
+      border-color: rgba(56, 189, 248, 0.35); 
+      transform: translateY(-3px); 
+      box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.15);
+    }
+
+    .hero-glow { 
+      background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.18) 0%, rgba(5, 7, 12, 0) 70%); 
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accent-500 selection:text-white">
+
+  <!-- 1. TOP RIBBON HEADER (Logo/Brand only) -->
+  <header class="sticky top-0 z-50 bg-navy-950/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-400 to-brand-800 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-accent-500/20 group-hover:scale-105 transition-transform">
+          C
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-black tracking-tight text-white flex items-center">
+            CAPEK<span class="text-accent-400">.</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono font-medium">Data & Risk Advisory</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section class="relative pt-20 pb-28 md:pt-28 md:pb-36 hero-glow overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-xs font-semibold uppercase tracking-wider mb-8">
+          <span class="w-2 h-2 rounded-full bg-accent-400 animate-ping"></span>
+          Enterprise Credit Risk Advisory
+        </div>
+        
+        <!-- Main Headline / Value Proposition -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-snug sm:leading-tight mb-8">
+          We leverage risk analytics to power Underwriting and Collection decision systems to maximise portfolio Net Present Value (NPV) for FinTechs and leading financial institutions
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+          Unlocking untapped yield through automated credit decisioning engines, dynamic collection workflow orchestration, and predictive risk segmentation.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button onclick="openModal()" class="w-full sm:w-auto px-9 py-4 bg-gradient-to-r from-accent-500 to-brand-600 hover:from-accent-400 hover:to-brand-500 text-white font-bold rounded-xl shadow-xl shadow-accent-500/25 transition-all duration-200 flex items-center justify-center gap-3 group text-base transform hover:-translate-y-0.5">
+            <span>Request Consulting Call</span>
+            <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CORE ADVISORY SPECIALIZATIONS (4 Cards) -->
+  <section class="py-24 border-t border-white/5 relative bg-navy-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-accent-400 font-semibold text-xs uppercase tracking-widest font-mono">Capabilities</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Core Advisory Specializations</h2>
+        <p class="text-slate-400 text-base">Institutional expertise focused on maximizing end-to-end credit risk performance.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Card 1: Underwriting & Credit Policy -->
+        <div class="glass-card glass-card-hover p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500/10 border border-accent-500/30 flex items-center justify-center text-accent-400 text-2xl mb-6">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Underwriting & Credit Policy</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-8">
+              Designing ML-powered credit decision engines, risk-based pricing structures, and automated approval workflows tailored to maximize risk-adjusted margin.
+            </p>
+          </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 font-mono pt-6 border-t border-white/5">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Machine Learning Scorecards</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Dynamic Risk-Based Pricing</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Alternative Data Integration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Collection Strategy & Debt Recovery -->
+        <div class="glass-card glass-card-hover p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500/10 border border-accent-500/30 flex items-center justify-center text-accent-400 text-2xl mb-6">
+              <i class="fa-solid fa-filter-circle-dollar"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Collection Strategy & Debt Recovery</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-8">
+              Building intelligent recovery workflows, automated debtor segmentation, and predictive delinquency mitigation systems to lower loss rates.
+            </p>
+          </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 font-mono pt-6 border-t border-white/5">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Predictive Delinquency Scorecards</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Intelligent Contact Treatment Orchestration</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Portfolio Roll-Rate Optimization</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: FinTech Advisory -->
+        <div class="glass-card glass-card-hover p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500/10 border border-accent-500/30 flex items-center justify-center text-accent-400 text-2xl mb-6">
+              <i class="fa-solid fa-cubes-stacked"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">FinTech Advisory</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-8">
+              Guiding emerging FinTech platforms and neobanks on credit product design, unit economics optimization, risk governance, and regulatory readiness.
+            </p>
+          </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 font-mono pt-6 border-t border-white/5">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Credit Product Structuring</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Regulatory & Compliance Frameworks</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Strategic Partnerships & Scaling</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Portfolio Risk Monitoring & Management -->
+        <div class="glass-card glass-card-hover p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500/10 border border-accent-500/30 flex items-center justify-center text-accent-400 text-2xl mb-6">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Portfolio Risk Monitoring & Management</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-8">
+              Implementing real-time surveillance systems, macroeconomic scenario analysis, and executive dashboards to proactively manage portfolio exposure.
+            </p>
+          </div>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 font-mono pt-6 border-t border-white/5">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Real-time Loss Forecasting</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Stress Testing & Economic Scenario Modeling</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-accent-400"></i>
+              <span>Executive Risk Dashboards & Metrics</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. LEADERSHIP SECTION -->
+  <section class="py-24 border-t border-white/5 bg-navy-900/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-accent-400 font-semibold text-xs uppercase tracking-widest font-mono">Expertise</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Leadership</h2>
+        <p class="text-slate-400 text-base">Direct operator experience leading consumer lending & risk strategy.</p>
+      </div>
+
+      <div class="max-w-xl mx-auto">
+        <div class="glass-card p-8 sm:p-10 rounded-2xl text-center flex flex-col items-center border border-white/10 shadow-2xl relative overflow-hidden">
+          
+          <!-- Avatar Placeholder / Initials -->
+          <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-accent-500 to-brand-800 p-1 mb-6 shadow-xl shadow-accent-500/10">
+            <div class="w-full h-full rounded-full bg-navy-950 flex items-center justify-center text-3xl font-extrabold text-white font-sans">
+              DS
+            </div>
+          </div>
+
+          <!-- Name & Title -->
+          <h3 class="text-2xl font-bold text-white mb-1">Deep Sengupta</h3>
+          <p class="text-accent-400 text-sm font-semibold mb-6">Founder & Principal Consultant</p>
+          
+          <!-- Bio -->
+          <p class="text-slate-300 text-sm leading-relaxed mb-8 max-w-md font-normal">
+            Specializing in risk analytics, portfolio NPV optimization, underwriting strategy, and digital collection decision frameworks across banking and global FinTech lending platforms.
+          </p>
+
+          <!-- LinkedIn Profile CTA -->
+          <a href="https://www.linkedin.com/in/deep-sengupta-/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-7 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-blue-600/25 transform hover:-translate-y-0.5">
+            <i class="fa-brands fa-linkedin text-lg"></i>
+            <span>Connect on LinkedIn</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FOOTER & CTA BANNER -->
+  <footer class="border-t border-white/10 bg-navy-950 pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- CTA Banner -->
+      <div class="glass-card p-10 sm:p-14 rounded-2xl mb-16 text-center max-w-4xl mx-auto flex flex-col items-center relative overflow-hidden border border-accent-500/20">
+        <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 text-xl mb-4">
+          <i class="fa-solid fa-comments text-lg"></i>
+        </div>
+        <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">Ready to Optimize Your Portfolio NPV?</h3>
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-8 leading-relaxed">
+          Schedule a direct advisory call to review your current underwriting and collection decision frameworks.
+        </p>
+        <button onclick="openModal()" class="px-8 py-4 bg-accent-500 hover:bg-accent-400 text-white font-bold rounded-xl transition-all shadow-xl shadow-accent-500/25 flex items-center gap-3 text-sm sm:text-base">
+          <span>Request Consulting Call</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Legal & Copyright -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 pt-8 border-t border-white/5">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-300">CAPEK SOLUTIONS</span>
+          <span>&copy; 2026. All rights reserved.</span>
+        </div>
+        <div>Data & Risk Advisory for FinTechs & Financial Institutions</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 6. CONTACT MODAL DRAWER -->
+  <div id="consultModal" class="fixed inset-0 z-50 hidden bg-navy-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card w-full max-w-lg p-8 sm:p-10 rounded-2xl relative shadow-2xl border border-white/10 bg-navy-900/90">
+      
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 text-xl transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 text-accent-400 text-xs font-mono font-semibold uppercase tracking-wider mb-1">
+          <i class="fa-solid fa-calendar-check"></i> Direct Advisory
+        </div>
+        <h3 class="text-2xl font-bold text-white">Request Consulting Call</h3>
+        <p class="text-slate-400 text-xs mt-1">Enter your details below and we will contact you to schedule a consultation.</p>
+      </div>
+      
+      <form id="consultForm" onsubmit="handleSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Full Name *</label>
+          <input type="text" required class="w-full bg-navy-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-400 text-sm transition-colors" placeholder="e.g. Sarah Jenkins">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Work Email *</label>
+          <input type="email" required class="w-full bg-navy-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-400 text-sm transition-colors" placeholder="sarah@institution.com">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Company / FinTech Name *</label>
+          <input type="text" required class="w-full bg-navy-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-400 text-sm transition-colors" placeholder="Acme Financial">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Brief Notes / Objective</label>
+          <textarea rows="3" class="w-full bg-navy-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-400 text-sm transition-colors resize-none" placeholder="Describe your underwriting, collection, or portfolio risk objectives..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-accent-500 to-brand-600 hover:from-accent-400 hover:to-brand-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-accent-500/20 text-sm mt-2 flex items-center justify-center gap-2">
+          <span>Submit Call Request</span>
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </form>
+
+      <!-- Confirmation Message -->
+      <div id="modalSuccess" class="hidden py-8 text-center space-y-4">
+        <div class="w-12 h-12 rounded-full bg-accent-500 text-white flex items-center justify-center text-xl mx-auto">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="text-xl font-bold text-white">Request Received</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">Thank you. We will review your inquiry and reach out shortly to coordinate a strategy call.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('consultModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('consultModal').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('consultForm').reset();
+        document.getElementById('consultForm').classList.remove('hidden');
+        document.getElementById('modalSuccess').classList.add('hidden');
+      }, 300);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('consultForm').classList.add('hidden');
+      document.getElementById('modalSuccess').classList.remove('hidden');
+      setTimeout(() => {
+        closeModal();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
